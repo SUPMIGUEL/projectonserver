@@ -1,0 +1,92 @@
+<% include ../partials/header %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                Event: <%= eventr.name %>
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <form action="/events" method="GET">
+                    <button type="submit" class="btn btn-info form-control">
+                        <span class="glyphicon glyphicon-home"></span> Home
+                    </button>
+                </form><br>
+                <form action="/events/<%= eventr.id %>/edit" method="GET">
+                    <button type="submit" class="btn btn-warning form-control">
+                        <span class="glyphicon glyphicon-edit"></span> Edit this post
+                    </button>
+                </form><br>
+                <form action="/events/<%= eventr.id %>?_method=delete" method="POST">
+                    <button type="submit" class="btn btn-danger form-control">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="text-right"><strong>Banner:</strong></th>
+                        <td class="text-center"><img src="<%= eventr.banner %>" width="200" height="100"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong>Logo:</strong></th>
+                        <td class="text-center"><img src="<%= eventr.logo %>" width="100" height="100"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Created by:  </strong></th>
+                        <td> <%= eventr.owner.username %> </td> 
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Address:  </strong></th>
+                        <td> <%= eventr.address %> </td> 
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Type:  </strong></th>
+                        <td> <%= eventr.type %> </td> 
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Web:  </strong></th>
+                        <td> <%= eventr.web %> </td> 
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Info:  </strong></th>
+                        <td> <%= eventr.info %> </td> 
+                    </tr>
+                    <tr>
+                        <th class="text-right"><strong> Created by:  </strong></th>
+                        <td> <%= eventr.contact %> </td> 
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-center">
+                        <strong> Comments  </strong>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"> 
+                            <% comments.forEach(function(comment){ %>
+                                <strong><%= comment.user.username %>:</strong> <%= comment.content %>
+                                <a href="/users/<%= eventr.owner.id %>/events/<%= eventr.id %>/comments/<%= comment.id %>">more...</a><br>
+                            <% })%> <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="/events/<%= eventr.id %>/comments/new" method="GET">
+                                        <button type="submit" class="btn btn-success">
+                                            <span class="glyphicon glyphicon-plus"></span> New Comment
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

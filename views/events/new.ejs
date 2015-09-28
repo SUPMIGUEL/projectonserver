@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                Add new Event
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form action="/users/<%= user_id %>/events" method="POST">
+                    <label for="name"> Name: </label>
+                    <input autofocus  type="text" name="name" id="name" class="form-control"><br>
+
+                    <label for="address"> Address: </label>
+                    <input type="text" name="address" id="address" class="form-control"><br>
+
+                    <label for="lat"> Latitude: </label>
+                    <input type="text" name="lat" id="lat" class="form-control"><br>
+
+                    <label for="lng"> Longitude: </label>
+                    <input type="text" name="lng" id="lng" class="form-control"><br>
+            
+                    <label for="type"> Type: </label>
+                    <input type="text" name="type" id="type" class="form-control"><br>
+
+                    <label for="web"> Web: </label>
+                    <input type="text" name="web" id="web" class="form-control"><br>
+
+                    <label for="info"> info: </label>
+                    <input type="text" name="info" id="info" class="form-control"><br>
+
+                    <label for="contact"> Contact: </label>
+                    <input type="text" name="contact" id="contact" class="form-control"><br>
+
+                    <label for="logo"> Logo Image URL (100X100): </label>
+                    <input type="text" name="logo" id="logo" class="form-control"><br>
+
+                    <label for="banner"> Banner Image URL (200X100): </label>
+                    <input type="text" name="banner" id="banner" class="form-control"><br>
+
+                    <label for="homepicture"> Home Image URL (200X200): </label>
+                    <input type="text" name="homepicture" id="homepicture" class="form-control"><br>
+
+                    <button type="submit" class="btn btn-success form-control">
+                        <span class="glyphicon glyphicon-plus"></span> Create
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

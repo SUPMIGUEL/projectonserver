@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                New User
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form action="/users" method="POST">
+                    <label for="username"> Username: </label>
+                        <input autofocus  type="text" name="username" id="username" class="form-control">
+
+                    <label for="mail"> Mail: </label>
+                        <input autofocus  type="text" name="mail" id="mail" class="form-control">
+
+                    <label for="avatar"> Avatar URL: </label>
+                        <input autofocus  type="text" name="avatar" id="avatar" class="form-control"> 
+
+                    <label for="twitter"> Twitter User: </label>
+                        <input autofocus  type="text" name="twitter" id="twitter" class="form-control">
+
+                    <label for="password"> Password: </label>
+                        <input type="password" name="password" id="password" class="form-control"><br>
+                    <button type="submit" class="btn btn-success form-control">
+                        <span class="glyphicon glyphicon-plus"></span> Create account
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

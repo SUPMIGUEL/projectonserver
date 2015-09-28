@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                Edit Comment
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form action="/comments/<%= comment.id %>?_method=put" method="POST">             
+                    <label for="content"> Content: </label>
+                    <input autofocus type="text" name="content" id="content" value="<%= comment.content %>" class="form-control"><br>
+
+                    <button type="submit" class="btn btn-success form-control">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Update
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

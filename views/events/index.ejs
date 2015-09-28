@@ -1,0 +1,83 @@
+<% include ../partials/header %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                Events App 
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <% if(currentuser !== ""){ %>
+                    WELCOME: <%= currentuser %>
+                    <form action="/events/new" method="GET">
+                        <button type="submit" class="btn btn-success form-control">
+                            <span class="glyphicon glyphicon-plus"></span> New Event
+                        </button><br><br>
+                    </form>
+                    <form action="/logout" method="GET">
+                        <button type="submit" class="btn btn-warning form-control">
+                            <span class="glyphicon glyphicon-star-empty"></span> Logout
+                        </button>
+                    </form>
+                <% }  %>
+                <% if(currentuser === ""){ %>
+                    <form action="/login" method="GET">
+                        <button type="submit" class="btn btn-info form-control">
+                            <span class="glyphicon glyphicon-plus"></span> Login
+                        </button>
+                    </form><br>
+                    <form action="/users/new" method="GET">
+                        <button type="submit" class="btn btn-warning form-control">
+                            <span class="glyphicon glyphicon-plus"></span> SignIn
+                        </button>
+                    </form>
+                <% }  %>
+            </div>
+            <div class="col-md-8">
+                <table class="table table-bordered">
+                    <tr>
+                        <th colspan="10" class="text-center"><strong> Events  </strong></th>
+                    </tr>
+                    <tr>
+                        <th class="text-center"><strong>Banner:</strong></th>
+                        <th class="text-center"><strong>Logo:</strong></th>
+                        <th class="text-center"><strong>Name</strong></th>
+                        <th class="text-center"><strong>Owner:</strong></th>
+                        <th class="text-center"><strong>Address</strong></th>
+                        <th class="text-center"><strong>Type:</strong></th>
+                        <th class="text-center"><strong>Web:</strong></th>
+                        <th class="text-center"><strong>info:</strong></th>
+                        <th class="text-center"><strong>Contact:</strong></th>
+                        <th class="text-center"><strong>More Info</strong></th>
+                    </tr>
+                    <% events.forEach(function(event) { %>
+                    <tr>
+                        <td class="text-center"><img src="<%= event.banner %>" height="100" width="200"></td>
+                        <td class="text-center"><img src="<%= event.logo %>" height="100" width="100"></td>
+                        <td class="text-center"><%= event.name %></td>
+                        <td class="text-center"><%= event.owner.username %></td>
+                        <td class="text-center"><%= event.address %></td>
+                        <td class="text-center"><%= event.type %></td>
+                        <td class="text-center"><%= event.web %></td>
+                        <td class="text-center"><%= event.info %></td>
+                        <td class="text-center"><%= event.contact %></td>
+                        <td class="text-center">
+                            <form action="/events/<%= event.id %>" method="GET">
+                                <button type="submit" class="btn btn-info form-control">
+                                    <span class="glyphicon glyphicon-info-sign"></span> Info
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% })%>
+                </table>
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

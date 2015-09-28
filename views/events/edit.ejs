@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="text-center">
+                Edit Event: <%= eventr.name %>
+            </h1> 
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form action="/events/<%= eventr._id %>?_method=put" method="POST">      
+                    <label for="name"> Name: </label>
+                    <input autofocus  type="text" name="name" id="name" class="form-control" value="<%= eventr.name %>"><br>
+
+                    <label for="address"> Address: </label>
+                    <input type="text" name="address" id="address" class="form-control" value="<%= eventr.address %>"><br>
+
+                    <label for="lat"> Latitude: </label>
+                    <input type="text" name="lat" id="lat" class="form-control" value="<%= eventr.lat %>"><br>
+
+                    <label for="lng"> Longitude: </label>
+                    <input type="text" name="lng" id="lng" class="form-control" value="<%= eventr.lng %>"><br>
+
+                    <label for="type"> Type: </label>
+                    <input type="text" name="type" id="type" class="form-control" value="<%= eventr.type %>"><br>
+
+                    <label for="web"> Web: </label>
+                    <input type="text" name="web" id="web" class="form-control" value="<%= eventr.web %>"><br>
+
+                    <label for="info"> info: </label>
+                    <input type="text" name="info" id="info" class="form-control" value="<%= eventr.info %>"><br>
+
+                    <label for="contact"> Contact: </label>
+                    <input type="text" name="contact" id="contact" class="form-control" value="<%= eventr.contact %>"><br>
+
+                    <label for="logo"> Logo Image URL (100X100): </label>
+                    <input type="text" name="logo" id="logo" class="form-control" value="<%= eventr.logo %>"><br>
+
+                    <label for="banner"> Banner Image URL (200X100): </label>
+                    <input type="text" name="banner" id="banner" class="form-control" value="<%= eventr.banner %>"><br>
+
+                    <label for="homepicture"> Home Image URL (200X200): </label>
+                    <input type="text" name="homepicture" id="homepicture" class="form-control" value="<%= eventr.homepicture %>"><br>
+
+                    <button type="submit" class="btn btn-success form-control">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Update
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footer %>
